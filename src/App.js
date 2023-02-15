@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import todo from "./apis";
 
 import Form from "./components/Form";
+import Section from "./components/Section";
 import List from "./components/List";
 
-const appTitle = "To do App";
+
+const appTitle = "Nombre de la App";
 
 // const list = [
 //     { title: "Test # 1", completed: false },
@@ -39,26 +41,33 @@ const App = () => {
     }
 
     return (
-        <div className="m-auto">
-            <>
-                <h1 className="font-Rubik text-dark text-center font-normal">
-                    {appTitle}
-                </h1>
-            </>
+        <>
+            <div className="mx-10 md:mx-36 grid">
+                <Section>
+                    <h1 className="py-5 font-Rubik text-dark text-center font-normal">
+                        {appTitle}
+                    </h1>
+                </Section>
 
-            <>
-                <Form addTodo={addTodo}/>
-            </>
+                <Section>
+                    <Form addTodo={addTodo}/>
+                </Section>
 
-            <>
-                <List
-                    editTodoListProp={editTodo}
-                    removeTodoListProp={removeTodo}
-                    list={todoList}
-                />
-            </>
-
-        </div>
+                <Section>
+                    <List
+                        editTodoListProp={editTodo}
+                        removeTodoListProp={removeTodo}
+                        list={todoList}
+                    />
+                </Section>
+            </div>
+            <div className="bg-sand mt-5 flex flex-col text-center p-5">
+                <h className="text-darkBlue font-Rubik text-base">Desarrollado por:</h>
+                <a href="https://github.com/manuel101284" target="_blank" rel="noreferrer" ><h className="font-light text-darkBlue font-Rubik text-base">manuel101284</h></a>
+                <a href="https://github.com/MariaHerrera03" target="_blank" rel="noreferrer" ><h className="font-light text-darkBlue font-Rubik text-base">MariaHerrera03</h></a>
+                <a href="https://github.com/DaniloDiaz08" target="_blank" rel="noreferrer" ><h className="font-light text-darkBlue font-Rubik text-base">DaniloDiaz08</h></a>
+            </div>
+        </>
     )
 }
 

@@ -20,20 +20,20 @@ const Form = ({addTodo}) => {
     }
 
     return (
-        <form className='w-11/12 p-5 bg-white/60 rounded-md mx-auto justify-center border-2 border-darkBlue' onSubmit={handleFormSubmit}>
-            <div className='grid grid-cols-5 w-10/12 m-auto '>
-                <div className='col-start-1 col-end-5 justify-self-center m-auto'>
+        <form className='px-5 py-2 md:px-10 bg-white/60 rounded-md mb-10 lg:mx-16 border-2 border-darkBlue' onSubmit={handleFormSubmit}>
+            <div className='grid grid-cols-5 w-full m-auto'>
+                <div className='col-start-1 col-end-5 m-auto'>
                     <input
                     value={inputValue}
                     onChange={handleInputChange}
                     type="text"
                     placeholder="Escriba una tarea"
-                    className='font-Rubik font-light text-center text-darkBlue text-b py-1 border-2 border-lightBlue/60 rounded-md bg-white'>
+                    className='sm:w-[256px] md:w-[400px] font-Rubik font-light text-center text-darkBlue text-b py-1 border-2 border-lightBlue/60 rounded-md bg-white'>
                     </input>
                 </div>
-                <div className='col-start-5 col-end-6 self-center'>
-                    <button type="submit" className=''>
-                        <i><MdAddCircle size={40} className='fill-darkBlue hover:fill-lightBlue'/></i>
+                <div className='col-start-5 col-end-6 justify-self-end'>
+                    <button type="submit" className='flex items-stretch'>
+                        <i className='self-center'><MdAddCircle alt='añadir tarea' size={30} className='fill-darkBlue hover:fill-lightBlue'/></i>
                     </button>
                 </div>
             </div>
