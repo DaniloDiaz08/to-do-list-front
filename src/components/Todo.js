@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BsFillPatchCheckFill, BsFillPatchMinusFill } from 'react-icons/bs';
 
 const Todo = ({title, completed, removeTodoItemProp, editTodoItemProp}) => {
 
@@ -38,7 +39,7 @@ const Todo = ({title, completed, removeTodoItemProp, editTodoItemProp}) => {
     }
 
     return (
-        <div className="row" onDoubleClick={handleDivDoubleClick}>
+        <div className="grid w-full px-5 py-2 my-3" onDoubleClick={handleDivDoubleClick}>
             {
                 isEditing ?
                     <div className="column seven wide">
@@ -51,22 +52,25 @@ const Todo = ({title, completed, removeTodoItemProp, editTodoItemProp}) => {
                             />
                         </div>
                     </div>:
-                    <>
-                        <div className="column five wide" onDoubleClick={handleDivDoubleClick}>
-                            <h2 className={"ui header" + (completedState ? "green" : "")}>{Value}</h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-1 w-full px-2 bg-darkGreen rounded-md border-2 border-lightGreen">
+                        <div className="content-center m-auto" onDoubleClick={handleDivDoubleClick}>
+                            <h2 className={"font-Rubik font-light text-center tracking-wide text-white text-xl pt-3 md:pt-0 lg:pt-3 pb-2 md:pb-0 lg:pb-2" + (completedState ? "green" : "")}>{Value}</h2>
                         </div>
-                        <div className="column two wide">
-                            <button className={"ui button circular icon green" + (completedState ? "blue" : "green")} onClick={handelButtonClick}>
-                                <i className="white check icon"></i>
-                            </button>
-                        </div>
-                    
-                        <div className="column two wide">
-                            <button className="ui button circular icon red" onClick={removeTodoItemProp}>
-                                <i className="white remove icon"></i>
-                            </button>
-                        </div>
-                    </>
+                        <div className="flex gap-3 md:flex-col lg:flex-row justify-around pt-1 md:pt-3 lg:pt-1 pb-3 md:pb-3 lg:pb-3">
+                            <div className="self-center justify-self-center bg-white px-1 rounded-md">
+                                <button className={"flex items-stretch" + (completedState ? "blue" : "green")} onClick={handelButtonClick}>
+                                    <h className="font-Rubik font-semibold text-center inline-block align-middle tracking-wide text-darkGreen text-lg">Hecho</h>
+                                    <i className="self-center justify-self-center"><BsFillPatchCheckFill alt='tarea finalizada' size={20} className="fill-darkGreen pl-1"/></i>
+                                </button>
+                            </div>
+                            <div className="self-center justify-self-center bg-white px-1 rounded-md">
+                                <button className="flex items-stretch" onClick={removeTodoItemProp}>
+                                    <h className="font-Rubik font-semibold text-center inline-block align-middle tracking-wide text-darkGreen text-lg">Eliminar</h>
+                                    <i className="self-center justify-self-center"><BsFillPatchMinusFill alt='eliminar tarea' size={20} className="fill-darkGreen pl-1"/></i>
+                                </button>
+                            </div>
+                        </div>   
+                    </div>
             }
         </div>
     );

@@ -22,6 +22,11 @@ module.exports = {
         'default': "url('/public/background.svg')"
       }
     },
+    screens: {
+      'sm': '425px',
+      'md': '768px',
+      'lg': '870px'
+    }
   },
   plugins: [],
 }

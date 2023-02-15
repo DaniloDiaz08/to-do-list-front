@@ -15,7 +15,7 @@ const List = ({list, removeTodoListProp, editTodoListProp}) => {
     )
     
     return (
-        <div className="ui grid center aligned">
+        <div className="w-full lg:grid lg:grid-cols-2 bg-white/60 rounded-md mb-5 border-2 border-darkGreen">
             {/* <Todo title="Test #1"/> */}
             {renderedList}
         </div>
